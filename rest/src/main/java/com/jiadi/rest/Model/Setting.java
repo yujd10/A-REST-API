@@ -13,50 +13,24 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 
 @JsonInclude(JsonInclude.Include.NON_NULL)
 @JsonPropertyOrder({
-        "id",
-        "model",
-        "components"
+        "settings"
 })
 @Generated("jsonschema2pojo")
-public class Juke {
+public class Setting {
 
-    @JsonProperty("id")
-    private String id;
-    @JsonProperty("model")
-    private String model;
-    @JsonProperty("components")
-    private List<Component> components = null;
+    @JsonProperty("settings")
+    private List<Setting__1> settings = null;
     @JsonIgnore
     private Map<String, Object> additionalProperties = new HashMap<String, Object>();
 
-    @JsonProperty("id")
-    public String getId() {
-        return id;
+    @JsonProperty("settings")
+    public List<Setting__1> getSettings() {
+        return settings;
     }
 
-    @JsonProperty("id")
-    public void setId(String id) {
-        this.id = id;
-    }
-
-    @JsonProperty("model")
-    public String getModel() {
-        return model;
-    }
-
-    @JsonProperty("model")
-    public void setModel(String model) {
-        this.model = model;
-    }
-
-    @JsonProperty("components")
-    public List<Component> getComponents() {
-        return components;
-    }
-
-    @JsonProperty("components")
-    public void setComponents(List<Component> components) {
-        this.components = components;
+    @JsonProperty("settings")
+    public void setSettings(List<Setting__1> settings) {
+        this.settings = settings;
     }
 
     @JsonAnyGetter

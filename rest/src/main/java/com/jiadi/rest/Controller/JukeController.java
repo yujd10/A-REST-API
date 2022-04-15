@@ -1,44 +1,66 @@
 package com.jiadi.rest.Controller;
 
 import com.jiadi.rest.Model.Juke;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.HttpStatus;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import com.jiadi.rest.Model.Setting;
+import com.jiadi.rest.Model.Setting__1;
+import org.springframework.web.bind.annotation.*;
 import org.springframework.web.client.RestTemplate;
 
-import java.lang.reflect.Array;
-import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+import java.util.Set;
 
 @RestController
 public class JukeController {
 
-    @Autowired
-//    private RestTemplate restTemplate;
+//    @Autowired
+    String uriJuke = "https://my-json-server.typicode.com/touchtunes/tech-assignment/jukes/";
+    String uriSetting = "https://my-json-server.typicode.com/touchtunes/tech-assignment/settings/";
 
-    @GetMapping("/hello")
+    @GetMapping("/jukes/hello")
     public String hello(){
         return "lol";
     }
 
-    @RequestMapping("/")
-    public void getAllJukes(){
-        String url = "https://my-json-server.typicode.com/touchtunes/tech-assignment/jukes";
+    @RequestMapping("/jukes")
+    public List<Juke> getAllJukes(){
+
         RestTemplate restTemplate = new RestTemplate();
 
-        Juke[] jukes = restTemplate.getForObject(url, Juke[].class);
-        System.out.println(jukes);
+        Juke[] jukes = restTemplate.getForObject(uriJuke, Juke[].class);
+        return Arrays.asList(jukes);
     }
 
-//    @RequestMapping("/{id}")
-//    public Juke getJukes(@PathVariable("id") long id){
-//        Juke juke = restTemplate.getForObject(
-//                "http://my-json-server.typicode.com/touchtunes/tech-assignment/jukes" + id,
-//                Juke.class
-//        );
-//        return new Juke(id,juke.getModel(),juke.getComponants());
+    @RequestMapping("/jukes/{id}")
+    public Juke getJukeById(@PathVariable("id") String id){
+        RestTemplate restTemplate = new RestTemplate();
+
+        Juke juke = restTemplate.getForObject(uriJuke + id, Juke.class);
+        return juke;
+    }
+
+    @RequestMapping("/settings")
+    public List<Setting> getAllSettings(){
+
+        RestTemplate restTemplate = new RestTemplate();
+
+        Setting settings = restTemplate.getForObject(uriSetting, Setting.class);
+        return Arrays.asList(settings);
+    }
+
+    @RequestMapping("/settings/{id}")
+    public Setting__1 getSettingById(@PathVariable("id") String id){
+        RestTemplate restTemplate = new RestTemplate();
+
+        Setting settings = restTemplate.getForObject(uriSetting, Setting.class);
+        for (int i = 0; i< settings.getSettings().size();i++){
+            if (settings.getSettings().get(i).getId().equals(id)){
+                return settings.getSettings().get(i);
+            }
+        }
+
+        return null;
+    }
+
     }
 

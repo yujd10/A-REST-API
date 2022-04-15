@@ -1,7 +1,6 @@
 package com.jiadi.rest.Model;
 
 import java.util.HashMap;
-import java.util.List;
 import java.util.Map;
 import javax.annotation.Generated;
 import com.fasterxml.jackson.annotation.JsonAnyGetter;
@@ -13,50 +12,24 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 
 @JsonInclude(JsonInclude.Include.NON_NULL)
 @JsonPropertyOrder({
-        "id",
-        "model",
-        "components"
+        "name"
 })
 @Generated("jsonschema2pojo")
-public class Juke {
+public class Component {
 
-    @JsonProperty("id")
-    private String id;
-    @JsonProperty("model")
-    private String model;
-    @JsonProperty("components")
-    private List<Component> components = null;
+    @JsonProperty("name")
+    private String name;
     @JsonIgnore
     private Map<String, Object> additionalProperties = new HashMap<String, Object>();
 
-    @JsonProperty("id")
-    public String getId() {
-        return id;
+    @JsonProperty("name")
+    public String getName() {
+        return name;
     }
 
-    @JsonProperty("id")
-    public void setId(String id) {
-        this.id = id;
-    }
-
-    @JsonProperty("model")
-    public String getModel() {
-        return model;
-    }
-
-    @JsonProperty("model")
-    public void setModel(String model) {
-        this.model = model;
-    }
-
-    @JsonProperty("components")
-    public List<Component> getComponents() {
-        return components;
-    }
-
-    @JsonProperty("components")
-    public void setComponents(List<Component> components) {
-        this.components = components;
+    @JsonProperty("name")
+    public void setName(String name) {
+        this.name = name;
     }
 
     @JsonAnyGetter
