@@ -22,10 +22,11 @@ And of course we have the unit tests !
 
  ## References
 1. [Official Apache Maven documentation](https://maven.apache.org/guides/index.html)
-2. [How to Call or Consume External API in Spring Boot?](https://www.geeksforgeeks.org/how-to-call-or-consume-external-api-in-spring-boot/)
-3. [REST API concepts and examples](https://www.youtube.com/watch?v=7YcW25PHnAA&t=467s)
-4. [Calling an external API - Spring Boot Microservices Level 2 by JavaBrains](https://www.youtube.com/watch?v=7nKKD2rKpUk)
-5. [Spring Boot Tutorial | Full Course [2021] [NEW] by Amigoscode](https://www.youtube.com/watch?v=9SGDpanrc8U&t=1865s)
+2. [What is a REST API (Chinese version)](https://www.redhat.com/zh/topics/api/what-is-a-rest-api)
+3. [How to Call or Consume External API in Spring Boot?](https://www.geeksforgeeks.org/how-to-call-or-consume-external-api-in-spring-boot/)
+4. [REST API concepts and examples](https://www.youtube.com/watch?v=7YcW25PHnAA&t=467s)
+5. [Calling an external API - Spring Boot Microservices Level 2 by JavaBrains](https://www.youtube.com/watch?v=7nKKD2rKpUk)
+6. [Spring Boot Tutorial | Full Course [2021] [NEW] by Amigoscode](https://www.youtube.com/watch?v=9SGDpanrc8U&t=1865s)
 
 ## Instructions
 ### Mocked URL : http://localhost:8080/
