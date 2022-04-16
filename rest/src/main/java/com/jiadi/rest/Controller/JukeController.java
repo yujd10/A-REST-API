@@ -15,21 +15,17 @@ import java.util.Set;
 
 @RestController
 public class JukeController {
-
-//    @Autowired
     String uriJuke = "https://my-json-server.typicode.com/touchtunes/tech-assignment/jukes/";
     String uriSetting = "https://my-json-server.typicode.com/touchtunes/tech-assignment/settings/";
 
-    @GetMapping("/jukes/hello")
+    @GetMapping("/hello")
     public String hello(){
-        return "lol";
+        return "hellooo!";
     }
 
     @RequestMapping("/jukes")
     public List<Juke> getAllJukes(){
-
         RestTemplate restTemplate = new RestTemplate();
-
         Juke[] jukes = restTemplate.getForObject(uriJuke, Juke[].class);
         return Arrays.asList(jukes);
     }
@@ -37,23 +33,23 @@ public class JukeController {
     @RequestMapping("/jukes/settingid/{settingId}")
     public List<Juke> getJukeBySettingId(@PathVariable("settingId") String settingId){
         List<Juke> jukes = getAllJukes();
-        Setting settings = getAllSettings();
-
+        List<String> requires = getSettingById(settingId).getRequires();;
         List<Juke> jukesFound = new ArrayList<>();
-        
+
+
+        //Check if a juke contains all requires from the setting that is found
+        for(Juke juke : jukes){
+            List<String> componentName = new ArrayList<>();
+            for(Component component : juke.getComponents()){
+                componentName.add(component.getName());
+            }
+            if(componentName.containsAll(requires)){
+                jukesFound.add(juke);
+            }
+        }
 
         return jukesFound;
     }
-
-    @RequestMapping("/jukes/id/{id}")
-    public Juke getJukeById(@PathVariable("id") String id){
-        RestTemplate restTemplate = new RestTemplate();
-
-        Juke juke = restTemplate.getForObject(uriJuke + id, Juke.class);
-        return juke;
-    }
-
-
 
     @RequestMapping("/jukes/model/{model}")
     public Juke getJukeByModel(@PathVariable("model") String model){
@@ -69,16 +65,40 @@ public class JukeController {
         return null;
     }
 
+    @RequestMapping("/jukes/{offset}/{limit}")
+    public List<Juke> getJukesOffsetLimit(@PathVariable("offset") int offset,@PathVariable("limit") int limit){
+        int counter = 0;
+        List<Juke> jukes = new ArrayList<>();
+        List<Juke> allJukes = getAllJukes();
+        if(offset < 0){
+            return null;
+        }
+
+        for(int i=offset;i<allJukes.size();i++){
+            if(counter<limit)
+                jukes.add(allJukes.get(i));
+                counter ++;
+        }
+        return jukes;
+    }
+
+    @RequestMapping("/jukes/id/{id}")
+    public Juke getJukeById(@PathVariable("id") String id){
+        RestTemplate restTemplate = new RestTemplate();
+
+        Juke juke = restTemplate.getForObject(uriJuke + id, Juke.class);
+        return juke;
+    }
+
     @RequestMapping("/settings")
     public Setting getAllSettings(){
-
         RestTemplate restTemplate = new RestTemplate();
 
         Setting settings = restTemplate.getForObject(uriSetting, Setting.class);
         return settings;
     }
 
-    @RequestMapping("/settings/id/{id}")
+    @RequestMapping("/settings/id={id}")
     public Setting__1 getSettingById(@PathVariable("id") String id){
         RestTemplate restTemplate = new RestTemplate();
 
@@ -92,5 +112,5 @@ public class JukeController {
         return null;
     }
 
-    }
+}
 
