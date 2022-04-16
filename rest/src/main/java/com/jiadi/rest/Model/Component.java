@@ -22,6 +22,22 @@ public class Component {
     @JsonIgnore
     private Map<String, Object> additionalProperties = new HashMap<String, Object>();
 
+    /**
+     * No args constructor for use in serialization
+     *
+     */
+    public Component() {
+    }
+
+    /**
+     *
+     * @param name
+     */
+    public Component(String name) {
+        super();
+        this.name = name;
+    }
+
     @JsonProperty("name")
     public String getName() {
         return name;

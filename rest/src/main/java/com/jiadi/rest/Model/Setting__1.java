@@ -26,6 +26,25 @@ public class Setting__1 {
     @JsonIgnore
     private Map<String, Object> additionalProperties = new HashMap<String, Object>();
 
+
+    /**
+     * No args constructor for use in serialization
+     *
+     */
+    public Setting__1() {
+    }
+
+    /**
+     *
+     * @param id
+     * @param requires
+     */
+    public Setting__1(String id, List<String> requires) {
+        super();
+        this.id = id;
+        this.requires = requires;
+    }
+
     @JsonProperty("id")
     public String getId() {
         return id;

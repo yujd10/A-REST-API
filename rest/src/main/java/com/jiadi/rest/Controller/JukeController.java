@@ -15,6 +15,9 @@ import java.util.Set;
 
 @RestController
 public class JukeController {
+    public JukeController() {
+    }
+
     String uriJuke = "https://my-json-server.typicode.com/touchtunes/tech-assignment/jukes/";
     String uriSetting = "https://my-json-server.typicode.com/touchtunes/tech-assignment/settings/";
 
@@ -98,7 +101,7 @@ public class JukeController {
         return settings;
     }
 
-    @RequestMapping("/settings/id={id}")
+    @RequestMapping("/settings/id/{id}")
     public Setting__1 getSettingById(@PathVariable("id") String id){
         RestTemplate restTemplate = new RestTemplate();
 

@@ -17,6 +17,9 @@ And of course we have the unit tests !
  ### Framework
  **Spring**
 
+## Tool
+* **jsonschema2pojo**
+
  ## References
 1. [Official Apache Maven documentation](https://maven.apache.org/guides/index.html)
 2. [How to Call or Consume External API in Spring Boot?](https://www.geeksforgeeks.org/how-to-call-or-consume-external-api-in-spring-boot/)

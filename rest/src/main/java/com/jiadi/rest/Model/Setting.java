@@ -23,6 +23,22 @@ public class Setting {
     @JsonIgnore
     private Map<String, Object> additionalProperties = new HashMap<String, Object>();
 
+    /**
+     * No args constructor for use in serialization
+     *
+     */
+    public Setting() {
+    }
+
+    /**
+     *
+     * @param settings
+     */
+    public Setting(List<Setting__1> settings) {
+        super();
+        this.settings = settings;
+    }
+
     @JsonProperty("settings")
     public List<Setting__1> getSettings() {
         return settings;

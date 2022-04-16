@@ -29,6 +29,27 @@ public class Juke {
     @JsonIgnore
     private Map<String, Object> additionalProperties = new HashMap<String, Object>();
 
+
+    /**
+     * No args constructor for use in serialization
+     *
+     */
+    public Juke() {
+    }
+
+    /**
+     *
+     * @param components
+     * @param model
+     * @param id
+     */
+    public Juke(String id, String model, List<Component> components) {
+        super();
+        this.id = id;
+        this.model = model;
+        this.components = components;
+    }
+
     @JsonProperty("id")
     public String getId() {
         return id;
