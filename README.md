@@ -1,18 +1,18 @@
-# A Rest Api
+# A Rest API
 
-_Authur: Jiadi Yu_
+_Author: Jiadi Yu_
 
 _Date: 2022-04-15_
 
 ## Introduction
-A REST API with a single GET endpoint which returns a paginated list of jukeboxes that suppport a given setting id. It should support following query parameters:
+A REST API with a single GET endpoint which returns a paginated list of jukeboxes that support a given setting ID. It should support the following query parameters:
 
- - `settingId` - setting id (required)
+ - `settingId` - setting ID (required)
  - `model` - filter by model name (optional)
  - `offset` - specifies at what index start the page (optional)
  - `limit` - specifies the page size (optional)
 
-And of course we have the unit tests !
+Unit tests are done and dockerized.
  ## Tools and references
  ### Framework
  **Spring**
@@ -33,7 +33,7 @@ And of course we have the unit tests !
 #### Salutation: http://localhost:8080/hello
 ### Functions(all about GET):
 #### **How to use**
-Run the java program, then using the given url below in browsers or *Postman* and send **GET** requests !
+Run the java program, then using the given URL below in browsers or *Postman* and send **GET** requests !
 
 **Getting a juke or couple of jukes by**
 1. settingId: http://localhost:8080/jukes/settingid/{settingId}
